@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mixland - Track Your Time</title>
+    <title>Mixland </title>
     <link rel="stylesheet" href="css/main.css">
 
 </head>
@@ -161,9 +161,9 @@
                                         <span class="col-label" style="animation-delay:1.8s">12PM</span>
                                     </div>
 
-                                </div><!-- /chart-columns -->
-                            </div><!-- /chart-plot -->
-                        </div><!-- /chart-body -->
+                                </div>
+                            </div> 
+                        </div> 
                     </div>
                     <div class="card time-card">
                         <div class="time-label">
@@ -187,7 +187,7 @@
                             </div>
 
                             <div class="task-item">
-                                <div class="task-checkbox checked"> <img width="12" src="assets/images/icons/check.png"
+                                <div class="task-checkbox checked"> <img width="10" src="assets/images/icons/check.png"
                                         alt=" check"> </div>
                                 <div class="task-info">
                                     <div class="task-name">Sketsa Ilustrasi</div>
@@ -243,9 +243,9 @@
     </section>
 
     <section class="feature-section">
-        <h2 class="section-title">Simple interface through which tasks can be easily managed</h2>
+        <h2 class="section-title" data-reveal="up">Simple interface through which tasks can be easily managed</h2>
 
-        <div class="cards-container">
+        <div class="cards-container" data-stagger>
             <div class="feature-card top-clients-card">
                 <div class="card-title">Top Clients</div>
 
@@ -347,7 +347,7 @@
             </div>
         </div>
 
-        <div class="bottom-features">
+        <div class="bottom-features" data-stagger>
             <div class="bottom-feature">
                 <h3>Track Customers</h3>
                 <p>Customer activity can be easily tracked with one click</p>
@@ -365,7 +365,7 @@
 
 
     <section class="content-1-section">
-        <div style="position: relative; ">
+        <div style="position: relative; " data-reveal="left">
             <div class="content-1-left">
                 <div class="yellow-circle-bg">
                 </div>
@@ -463,7 +463,7 @@
             </div>
         </div>
 
-        <div class="content-1-right">
+        <div class="content-1-right" data-reveal="right">
             <h2 class="content-1-title">Excellent way to use your busy time smartly</h2>
             <p class="content-1-text">
                 Time management is the process of planning and exercising conscious control of specific activities
@@ -476,7 +476,7 @@
     </section>
 
     <section class="content-2-section">
-        <div class="content-2-left">
+        <div class="content-2-left" data-reveal="left">
             <h2 class="content-2-title">Organize and plan how you can divide your time</h2>
             <p class="content-2-text">
                 Time management helps you prioritize your tasks so that you ensure you have enough time available to
@@ -488,7 +488,7 @@
             </p>
         </div>
 
-        <div class="content-2-right">
+        <div class="content-2-right" data-reveal="right">
 
             <div class="card tasks-card-2">
                 <h4>Scheduled time for work</h4>
@@ -597,9 +597,10 @@
 
     <section class="testimonial-section">
         <div class="testimonial-container">
-            <h2 class="section-title-white">You are not alone. The pain of website creation is real</h2>
+            <h2 class="section-title-white" data-reveal="up">You are not alone. The pain of website creation is real
+            </h2>
 
-            <div class="testimonials-grid">
+            <div class="testimonials-grid" data-stagger>
                 <div class="testimonial-card">
                     <div class="testimonial-avatar"></div>
                     <p class="testimonial-quote">"The easiest and most accurate way to track time across teams and
@@ -625,10 +626,10 @@
                 </div>
             </div>
 
-            <div class="trusted-section">
+            <div class="trusted-section" data-reveal="up">
                 <p class="trusted-label">Trusted by world class business owners</p>
 
-                <div class="logos-row">
+                <div class="logos-row" data-stagger>
                     <div class="logo-item logo-paperz">
                         <span class="logo-icon"></span>
                         <div class="logo-text">
@@ -678,13 +679,13 @@
         </div>
     </section>
     <section class="blog-section">
-        <div class="blog-header">
+        <div class="blog-header" data-reveal="up">
             <h2 class="blog-title">Read our blog to learn about time management</h2>
             <p class="blog-subtitle">Time management is the process of planning and exercising conscious control of time
                 spent on specific activities</p>
         </div>
 
-        <div class="blog-grid">
+        <div class="blog-grid" data-stagger>
             <article class="blog-card">
                 <div class="blog-image"></div>
                 <p class="blog-date">November 25, 2022</p>
@@ -707,7 +708,7 @@
             <div class="wave-line wave-4"></div>
         </div>
 
-        <div class="cta-container">
+        <div class="cta-container" data-reveal="up">
             <h2 class="cta-title">Join our community</h2>
             <p class="cta-subtitle">Work smarter with this time management and not hard, join our newsletter for a
                 better experience</p>
@@ -784,7 +785,7 @@
                             alt="facebook"></a>
                     <a href="#" class="social-icon social-instagram"><img src="assets/images/icons/logo-instagram 1.png"
                             alt="instagram"></a>
-                    <a href="#" class="social-icon social-github"><img src="assets/images/icons/logo-github 1.png"
+                    <a href="#" class="social-icon social-github"><img src="assets/images/icons/github.png"
                             alt="github"></a>
                 </div>
             </div>
@@ -792,6 +793,84 @@
     </footer>
 
 
+    <script>
+        (function () {
+            const revealEls = document.querySelectorAll('[data-reveal], [data-stagger]');
+            const revealObs = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            revealObs.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+            );
+            revealEls.forEach(el => revealObs.observe(el));
+
+            const progressFills = document.querySelectorAll('.progress-fill');
+            const barObs = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            barObs.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
+            progressFills.forEach(el => barObs.observe(el));
+
+            const circleEl = document.querySelector('.circle-fill');
+            if (circleEl) {
+                const circObs = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('is-visible');
+                                circObs.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.4 }
+                );
+                circObs.observe(circleEl);
+            }
+
+            function animateCount(el) {
+                const target = parseFloat(el.dataset.target);
+                const duration = 1400;
+                const start = performance.now();
+                const isInt = Number.isInteger(target);
+                function step(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const ease = 1 - Math.pow(1 - progress, 3);
+                    const value = target * ease;
+                    el.textContent = isInt ? Math.floor(value) : value.toFixed(1);
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+            const countEls = document.querySelectorAll('[data-count]');
+            if (countEls.length) {
+                const countObs = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.dataset.target = entry.target.textContent;
+                                animateCount(entry.target);
+                                countObs.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.5 }
+                );
+                countEls.forEach(el => countObs.observe(el));
+            }
+        })();
+    </script>
 </body>
 
 </html>
