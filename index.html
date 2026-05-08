@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mixland - Track Your Time</title>
     <link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body>
@@ -60,11 +61,183 @@
                 <div class="shape-3"></div>
             </div>
             <div class="dashboard-container">
-                <div class="card chart-card"> </div>
-                <div class="card time-card"> </div>
-                <div class="card tasks-card"> </div>
-                <div class="card todo-card"></div>
-                <div class="card completed-card"></div>
+                <div class="dashboard-grid">
+                    <div class="card chart-card" id="heroChartCard">
+                        <div class="chart-header">
+                            <span class="chart-title">Activity</span>
+                        </div>
+                        <div class="chart-tooltip" id="heroTooltip">2h 15m · 10AM</div>
+
+                        <div class="chart-body">
+
+                            <!-- Y-axis labels -->
+                            <div class="chart-y-labels">
+                                <span>2h30</span>
+                                <span>2h</span>
+                                <span>1h30</span>
+                                <span>1h</span>
+                                <span>30m</span>
+                            </div>
+
+                            <div class="chart-plot">
+
+                                <!-- Horizontal grid lines -->
+                                <div class="chart-grid">
+                                    <div class="cg-line"></div>
+                                    <div class="cg-line"></div>
+                                    <div class="cg-line"></div>
+                                    <div class="cg-line"></div>
+                                    <div class="cg-line"></div>
+                                </div>
+
+                                <!-- Bars -->
+                                <div class="chart-columns">
+
+                                    <div class="chart-col">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar" style="--h:25%; animation-delay:0.4s"></div>
+                                        </div>
+                                        <span class="col-label" style="animation-delay:1.0s">8AM</span>
+                                    </div>
+
+                                    <div class="chart-col">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar" style="--h:40%; animation-delay:0.5s"></div>
+                                        </div>
+                                        <span class="col-label" style="animation-delay:1.1s"></span>
+                                    </div>
+
+                                    <div class="chart-col">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar" style="--h:55%; animation-delay:0.6s"></div>
+                                        </div>
+                                        <span class="col-label" style="animation-delay:1.2s">9AM</span>
+                                    </div>
+
+                                    <div class="chart-col">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar" style="--h:77%; animation-delay:0.7s"></div>
+                                        </div>
+                                        <span class="col-label" style="animation-delay:1.3s"></span>
+                                    </div>
+
+                                    <!-- Active col — 10AM -->
+                                    <div class="chart-col active-col" id="activeCol">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar active-bar" style="--h:93%; animation-delay:0.8s">
+                                                <div class="bar-glow"></div>
+                                                <div class="bar-dot" id="hcDot"></div>
+                                                <div class="bar-hover" id="hcHover"></div>
+                                            </div>
+                                        </div>
+                                        <span class="col-label active-label" style="animation-delay:1.4s">10AM</span>
+                                    </div>
+
+                                    <div class="chart-col">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar" style="--h:75%; animation-delay:0.9s"></div>
+                                        </div>
+                                        <span class="col-label" style="animation-delay:1.5s"></span>
+                                    </div>
+
+                                    <div class="chart-col">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar" style="--h:61%; animation-delay:1.0s"></div>
+                                        </div>
+                                        <span class="col-label" style="animation-delay:1.6s">11AM</span>
+                                    </div>
+
+                                    <div class="chart-col">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar" style="--h:47%; animation-delay:1.1s"></div>
+                                        </div>
+                                        <span class="col-label" style="animation-delay:1.7s"></span>
+                                    </div>
+
+                                    <div class="chart-col">
+                                        <div class="chart-bar-wrap">
+                                            <div class="chart-bar" style="--h:68%; animation-delay:1.2s"></div>
+                                        </div>
+                                        <span class="col-label" style="animation-delay:1.8s">12PM</span>
+                                    </div>
+
+                                </div><!-- /chart-columns -->
+                            </div><!-- /chart-plot -->
+                        </div><!-- /chart-body -->
+                    </div>
+                    <div class="card time-card">
+                        <div class="time-label">
+                            <div class="time-icon"> <img src="assets/images/icons/stopwatch.png" alt=" stopwatch"></div>
+                            <span>Time Duration</span>
+                        </div>
+                        <div class="time-value">1<span>h</span> 46<span>m</span></div>
+                    </div>
+
+                    <div class="tasks-card-hidden">
+                        <div class="card tasks-card">
+                            <h4>Scheduled time for work</h4>
+
+                            <div class="task-item">
+                                <div class="task-checkbox"></div>
+                                <div class="task-info">
+                                    <div class="task-name">Design Homepage</div>
+                                    <div class="task-time">Time: 1.30 hours</div>
+                                </div>
+                                <div class="task-progress"> <img src="assets/images/icons/clock.png" alt=" clock"></div>
+                            </div>
+
+                            <div class="task-item">
+                                <div class="task-checkbox checked"> <img width="12" src="assets/images/icons/check.png"
+                                        alt=" check"> </div>
+                                <div class="task-info">
+                                    <div class="task-name">Sketsa Ilustrasi</div>
+                                    <div class="task-time">Time: 2.00 hours</div>
+                                </div>
+                                <div class="task-progress progress-orange"> <img src="assets/images/icons/clock.png"
+                                        alt=" clock"></div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox"></div>
+                                <div class="task-info">
+                                    <div class="task-name">Onboarding Design</div>
+                                    <div class="task-time">Time: 3.30 hours</div>
+                                </div>
+                                <div class="task-progress progress-green"> <img src="assets/images/icons/clock.png"
+                                        alt=" clock"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card todo-card">
+                        <h4>To Do List</h4>
+                        <div class="todo-item">
+                            <div class="todo-icon"> <img src="assets/images/icons/folder-icon.png" alt=" folder"> </div>
+                            <div class="todo-info">
+                                <div class="todo-name">Creating Wireframe</div>
+                                <div class="todo-date">Thu, June 12</div>
+                            </div>
+                            <div class="todo-time">00:40:00</div>
+                        </div>
+                        <div class="todo-item">
+                            <div class="todo-icon"> <img src="assets/images/icons/folder-icon.png" alt=" folder"></div>
+                            <div class="todo-info">
+                                <div class="todo-name">Research Development</div>
+                                <div class="todo-date">Mon, July 25</div>
+                            </div>
+                            <div class="todo-time">00:20:00</div>
+                        </div>
+                    </div>
+
+                    <div class="card completed-card">
+                        <div class="task-completed">
+                            <div class="completed-badge"><img width="16" src="assets/images/icons/check.png"
+                                    alt=" check "></div>
+                            <div class="completed-label">Task Completed</div>
+                        </div>
+                        <div class="completed-value">12</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -192,17 +365,102 @@
 
 
     <section class="content-1-section">
-        <div class="content-1-left">
-            <div class="yellow-circle-bg">
-            </div>
-            <div class="shape-circle-bg">
-                <div class="shape-circle shape-1"></div>
-                <div class="shape-circle shape-2"></div>
-                <div class="shape-circle shape-3"></div>
-                <div class="shape-circle shape-4"></div>
-            </div>
+        <div style="position: relative; ">
+            <div class="content-1-left">
+                <div class="yellow-circle-bg">
+                </div>
+                <div class="shape-circle-bg">
+                    <div class="shape-circle shape-1"></div>
+                    <div class="shape-circle shape-2"></div>
+                    <div class="shape-circle shape-3"></div>
+                    <div class="shape-circle shape-4"></div>
+                </div>
+                <div class="tasks-grid-3">
+                    <div class="card main-card-3">
+                        <div class="main-header">
+                            <span class="main-title">Today</span>
+                            <span class="see-all">See All</span>
+                        </div>
+
+                        <div class="task-item-3">
+                            <div class="task-icon-3 icon-purple"> <img width="65%" src="assets/images/icons/desktop.png"
+                                    alt="Task Icon"> </div>
+                            <div class="task-details-3">
+                                <div class="task-name-3">UI Design</div>
+                                <div class="task-tags-3">
+                                    <span class="task-tag-3 tag-work">Work</span>
+                                    <span class="task-tag-3 tag-project">Rasion Project</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-item-3">
+                            <div class="task-icon-3 icon-orange"> <img width="65%" src="assets/images/icons/barbell.png"
+                                    alt="Task Icon"></div>
+                            <div class="task-details-3">
+                                <div class="task-name">100x Sit-Up</div>
+                                <div class="task-tags-3">
+                                    <span class="task-tag-3 tag-personal">Personal</span>
+                                    <span class="task-tag-3 tag-workout">Workout</span>
+                                </div>
+                            </div>
+                            <div class="task-time-3">
+                                <span>00:14:06</span>
+                                <div class="play-btn"> <img width="65%" src="assets/images/icons/play-button.png"
+                                        alt="Task Icon"></div>
+                            </div>
+                        </div>
+
+                        <div class="task-item-3">
+                            <div class="task-icon-3 icon-pink"> <img width="65%"
+                                    src="assets/images/icons/code-slash 1.png" alt="Task Icon"></div>
+                            <div class="task-details-3">
+                                <div class="task-name-3">Learn HTML & CSS</div>
+                                <div class="task-tags-3">
+                                    <span class="task-tag-3 tag-personal">Personal</span>
+                                    <span class="task-tag-3 tag-coding">Coding</span>
+                                </div>
+                            </div>
+                            <div class="task-time-3">
+                                <span>00:24:52</span>
+                                <div class="play-btn"> <img width="65%" src="assets/images/icons/play-button.png"
+                                        alt="Task Icon"></div>
+                            </div>
+                        </div>
+
+                        <div class="task-item-3">
+                            <div class="task-icon-3 icon-green"> <img width="65%" src="assets/images/icons/book.png"
+                                    alt="Task Icon"></div>
+                            <div class="task-details-3">
+                                <div class="task-name">Read 10 pages of book</div>
+                                <div class="task-tags-3">
+                                    <span class="task-tag-3 tag-personal">Personal</span>
+                                    <span class="task-tag-3 tag-reading">Reading</span>
+                                </div>
+                            </div>
+                            <div class="task-time-3">
+                                <span>00:21:09</span>
+                                <div class="play-btn"> <img width="65%" src="assets/images/icons/play-button.png"
+                                        alt="Task Icon"></div>
+                            </div>
+                        </div>
+                    </div>
 
 
+                </div>
+
+            </div>
+            <div class="card floating-card-1">
+                <div class="floating-icon"> <img width="65%" src="assets/images/icons/files.png" alt="Task Icon">
+                </div>
+                <span class="floating-text">Report analysis</span>
+            </div>
+
+            <div class="card floating-card-2">
+                <div class="floating-icon"> <img width="65%" src="assets/images/icons/Time-schedule.png"
+                        alt="Task Icon"></div>
+                <span class="floating-text">Timesheets make</span>
+            </div>
         </div>
 
         <div class="content-1-right">
@@ -231,15 +489,109 @@
         </div>
 
         <div class="content-2-right">
-            <div class="mockup-card scheduled-card">
-                <div class="scheduled-title">Scheduled time for work</div>
-                <div class="scheduled-item">
+
+            <div class="card tasks-card-2">
+                <h4>Scheduled time for work</h4>
+
+                <div class="task-item-2">
+                    <div class="task-checkbox"></div>
+                    <div class="task-info">
+                        <div class="task-name">Design Homepage</div>
+                        <div class="task-time">Time: 1.30 hours</div>
+                    </div>
+                    <div class="task-progress"> <img src="assets/images/icons/clock.png" alt="clock-icon"></div>
+                </div>
+
+                <div class="task-item-2">
+                    <div class="task-checkbox checked"> <img width="12" src="assets/images/icons/check.png"
+                            alt="check-icon"></div>
+                    <div class="task-info">
+                        <div class="task-name">Sketsa Ilustrasi</div>
+                        <div class="task-time">Time: 2.00 hours</div>
+                    </div>
+                    <div class="task-progress progress-orange"> <img src="assets/images/icons/clock.png"
+                            alt="clock-icon"></div>
+                </div>
+
+                <div class="task-item-2">
+                    <div class="task-checkbox"></div>
+                    <div class="task-info">
+                        <div class="task-name">Onboarding Design</div>
+                        <div class="task-time">Time: 3.30 hours</div>
+                    </div>
+                    <div class="task-progress progress-green"> <img src="assets/images/icons/clock.png"
+                            alt="clock-icon"></div>
                 </div>
             </div>
-            <div class="mockup-card ">
+
+            <div class="card weekly-card">
+                <div class="weekly-header">
+                    <span class="weekly-title">Weekly Progress</span>
+                    <span class="weekly-dots">&#8226;&#8226;&#8226;</span>
+                </div>
+                <div class="weekly-subtitle">Start from Nov 7-14, 2020</div>
+                <div class="circle-progress">
+                    <div class="circle-chart">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="circle-bg" cx="50" cy="50" r="40" />
+                            <circle class="circle-fill" cx="50" cy="50" r="40" />
+                        </svg>
+                        <div class="circle-text">
+                            <div class="circle-percent">75%</div>
+                            <div class="circle-label">Tasks Completed</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mockup-card ">
+
+            <div class="card statistic-card">
+                <div class="statistic-title">Statistic</div>
+                <div class="statistic-chart">
+                    <div class="chart-y-axis">
+                        <span>8k</span>
+                        <span>6k</span>
+                        <span>4k</span>
+                        <span>2k</span>
+                        <span>0</span>
+                    </div>
+
+                    <div class="bar-group">
+                        <div class="bar bar-blue" style="height: 20px; margin-bottom: 250%;"></div>
+                        <div class="bar bar-black" style="height: 9px; margin-bottom: 230%;"></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar bar-blue" style="height: 35px; margin-bottom: 200%;"></div>
+                        <div class="bar bar-black" style="height: 13px; margin-bottom: 380%;"></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar bar-blue" style="height: 40px; margin-bottom: 150%;"></div>
+                        <div class="bar bar-black" style="height: 45px; margin-bottom: 230%;"></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar bar-blue" style="height: 40px; margin-bottom: 200%;"></div>
+                        <div class="bar bar-black" style="height: 20px; margin-bottom: 280%;"></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar bar-blue" style="height: 30px; margin-bottom: 150%;"></div>
+                        <div class="bar bar-black" style="height: 15px; margin-bottom: 30%;"></div>
+                    </div>
+                </div>
+                <div class="statistic-labels">
+                    <span class="stat-label">24h</span>
+                    <span class="stat-label active">1d</span>
+                    <span class="stat-label">3d</span>
+                    <span class="stat-label">1w</span>
+                    <span class="stat-label">3w</span>
+                    <span class="stat-label">1m</span>
+                </div>
             </div>
+
+
+
+
+
+
+
         </div>
     </section>
 
@@ -438,6 +790,8 @@
             </div>
         </div>
     </footer>
+
+
 </body>
 
 </html>
